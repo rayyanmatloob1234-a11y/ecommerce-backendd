@@ -1,0 +1,16 @@
+[
+  {
+    "id": "1782165053384",
+    "name": "Rameen",
+    "email": "rameen@test.com",
+    "password": "$2b$10$gdxFTAanldvHijcpF3YVT.SxinLMqnoAXVCEOrNWIlalhXiN2q.bO",
+    "role": "admin"
+  },
+  {
+    "id": "1782166982321",
+    "name": "Rayyan Matloob",
+    "email": "rayyanmatloob1234@gmail.com",
+    "password": "$2b$10$PjCdPn1Y/sC1rCXrfucb8OMJVPoZY.7ThbFUJ6sWA97BpBYFg1alm",
+    "role": "user"
+  }
+]

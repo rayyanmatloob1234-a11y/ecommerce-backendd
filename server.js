@@ -1,7 +1,10 @@
+require('dotenv').config();
 const express = require('express');
 const cors = require('cors');
 const fs = require('fs');
 const path = require('path');
+const authRoutes = require('./routes/auth');
+const { verifyAdmin } = require('./middleware/auth');
 
 const app = express();
 
@@ -19,6 +22,8 @@ const saveProducts = (products) => {
   fs.writeFileSync(productsFile, JSON.stringify(products, null, 2));
 };
 
+app.use('/api/auth', authRoutes);
+
 app.get('/api/products', (req, res) => {
   let products = getProducts();
   const { search, category } = req.query;
@@ -34,7 +39,7 @@ app.get('/api/products/:id', (req, res) => {
   res.json(product);
 });
 
-app.post('/api/products', (req, res) => {
+app.post('/api/products', verifyAdmin, (req, res) => {
   const products = getProducts();
   const newProduct = { ...req.body, _id: Date.now().toString() };
   products.push(newProduct);
@@ -42,14 +47,14 @@ app.post('/api/products', (req, res) => {
   res.status(201).json(newProduct);
 });
 
-app.put('/api/products/:id', (req, res) => {
+app.put('/api/products/:id', verifyAdmin, (req, res) => {
   let products = getProducts();
   products = products.map(p => p._id === req.params.id ? { ...p, ...req.body } : p);
   saveProducts(products);
   res.json(products.find(p => p._id === req.params.id));
 });
 
-app.delete('/api/products/:id', (req, res) => {
+app.delete('/api/products/:id', verifyAdmin, (req, res) => {
   let products = getProducts();
   products = products.filter(p => p._id !== req.params.id);
   saveProducts(products);
