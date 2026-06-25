@@ -12,5 +12,20 @@
     "email": "rayyanmatloob1234@gmail.com",
     "password": "$2b$10$PjCdPn1Y/sC1rCXrfucb8OMJVPoZY.7ThbFUJ6sWA97BpBYFg1alm",
     "role": "user"
+  },
+  {
+    "id": "1782252060536",
+    "name": "Rayyan Matloob",
+    "email": "productivity071@gmail.com",
+    "password": "$2b$10$BcJdHXJQ4e4FeHUiJZG2pOrj9O17P5tYb3fZ7fVFDjBL8Tjju5WLW",
+    "role": "user",
+    "phone": "+92 3392412885",
+    "address": {
+      "country": "Pakistan",
+      "street": "Falcon Complex New Malir House No: SDH-652",
+      "city": "Karachi",
+      "postalCode": "75330"
+    },
+    "billing": null
   }
 ]
